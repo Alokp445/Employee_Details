@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Logged Out";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Employee_Details</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <!-- Additional CSS files if needed -->
+    <style>
+        /* Add your custom styles here */
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            <h1>Logged Out</h1>
+            <p>You have been successfully logged out.</p>
+        </main>
+    </div>
+
+    <!-- Optional: JavaScript to prevent navigation back to the logged-in state -->
+    <script>
+        // Replace history state with main page URL
+        var mainPageUrl = '/'; // Replace with your main page URL
+        history.replaceState(null, null, mainPageUrl);
+
+        // Prevent back navigation to logged-in state
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, mainPageUrl);
+        });
+
+        // Redirect to main page after 3 seconds
+        setTimeout(function () {
+            window.location.href = mainPageUrl;
+        }, 3000); // Redirect after 3 seconds (3000 milliseconds)
+    </script>
+
+</body>
+</html>

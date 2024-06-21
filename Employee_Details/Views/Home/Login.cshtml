@@ -1,0 +1,97 @@
+﻿@model Employee_Details.Models.Employee
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<style>
+    body {
+        margin: 10;
+        padding: 0;
+        background-image: url('https://wallpapers.com/images/hd/4k-laptop-on-black-desk-qrlk8vcxz01kbm0h.jpg');
+        background-size: cover;
+        background-position: center;
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 3.2cm;
+        padding-right: 25cm;
+    }
+
+    .email {
+        margin-left: 0px !important;
+    }
+
+    .login-box {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 80px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+        position: relative; /* Added position relative */
+    }
+
+    .sign-up-text {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+
+        /* Remove underline from anchor tag */
+        .sign-up-text a {
+            text-decoration: none;
+        }
+
+</style>
+
+<div class="content">
+    <div class="login-box">
+        <h1 class="text-center" style="font-size:40px;margin-top:0;color:forestgreen;">Login For Employees !</h1>
+        <hr />
+
+        @if (TempData["Message"] != null)
+        {
+            <div id="ErrorMessage" class="alert alert-danger" style="background-color:red;">Login Error!</div>
+        }
+        <script>
+            setTimeout(function () {
+                var ErrorMessage = document.getElementById("ErrorMessage");
+                if (ErrorMessage) {
+                    ErrorMessage.style.display = "none";
+                }
+            }, 8000);
+        </script>
+
+        <br />
+
+        <form asp-action="Login" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group" style="font-size:30px;display: flex; flex-direction: column;">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control email" style="font-size:20px;width:200px;" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <br />
+
+            <div class="form-group" style=" font-size:30px; display: flex; flex-direction: column;">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" style="font-size:20px;width:200px;" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <br />
+            <br />
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Login" style="background-color:red;font-size: 25px;" />
+                <!-- Sign-up text -->
+                <div class="sign-up-text">Don't have an account? <a href="/Home/SignUp" class="btn btn-link" style="font-size: 30px;color:white;background-color:blue;">Sign Up</a></div>
+            </div>
+        </form>
+    </div>
+</div>

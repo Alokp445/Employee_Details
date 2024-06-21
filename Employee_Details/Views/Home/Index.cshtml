@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Employee_Details.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url('https://w0.peakpx.com/wallpaper/421/437/HD-wallpaper-plain-purple-background-purple.jpg');
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+
+    table.table th,
+    table.table td {
+        color: white; /* Set text color to white for table headers and cells */
+    }
+
+    table.table tr {
+        color: white; /* Set text color to white for table rows */
+    }
+</style>
+<h1 style="color:white">Index</h1>
+
+@if (TempData["Message"] == null)
+{
+    <div id="successMessage" class="alert alert-success" style="background-color:aqua">Login Successfull!</div>
+}
+<script>
+    setTimeout
+        (function () {
+            var successMessage = document.getElementById("successMessage");
+            if (successMessage) {
+                successMessage.style.display = "none";
+            }
+        },
+            4000
+        ); // 4000 milliseconds = 4 seconds
+</script>
+
+
+
+<br/>
+<p>
+    <div class="btn btn-primary" >
+        <a asp-action="Signup" style="color:white"> New Employee</a>
+    </div>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Phone_No)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone_No)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

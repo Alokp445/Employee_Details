@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Employee_Details</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CrudRenter.styles.css" asp-append-version="true" />
+    <style>
+        .nvbg {
+            background-color: #007bff; /* Blue background color */
+        }
+
+        .navbar-nav.ml-auto > .nav-item {
+            margin-right: 0.5cm; /* 0.5 cm gap */
+        }
+
+        body {
+            margin: 0 px;
+            padding: 0;
+            background-image: url('https://wallpapers.com/images/hd/4k-laptop-on-black-desk-qrlk8vcxz01kbm0h.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .image-container {
+            max-width: 650px; /* Adjust the maximum width of the image container */
+            margin: 20px auto; /* Center horizontally and add top margin */
+            padding: 0 px; /* Optional: add padding for better visual */
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 0 px rgba(0, 0, 0, 0.2); /* Optional: add a shadow */
+            overflow: hidden;
+            text-align: center; /* Center contents horizontally */
+        }
+
+            .image-container img {
+                max-width: 100%; /* Ensure the image scales down if larger than container */
+                height: auto; /* Maintain aspect ratio */
+                display: block; /* Remove any default inline spacing */
+                margin: 0 auto; /* Center the image horizontally within its container */
+            }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light nvbg border-bottom box-shadow mb-3">
+            <div class="container">
+                <!-- Brand/logo -->
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Dashboard">Home</a>
+                <!-- Navbar toggler button for responsive design -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Navbar links and login button -->
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between w-100">
+                    <!-- Left-aligned links -->
+
+
+                    <ul class="navbar-nav">
+
+                      
+                    </ul>
+                    <!-- Right-aligned buttons -->
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="btn btn-danger" asp-area="" asp-controller="Home" asp-action="Signup">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-danger" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+   
+
+    <div class="container">
+        <h1 class="text-center" style="font-size: 40px; margin-top: 0; color: red;">Welcome To The Home!</h1>
+        <br />
+        <br />
+        <br />
+        <div class="col-md-8 mx-auto">
+            <h2 class="text-center" style="font-size: 30px; margin-top: 0; color: yellow;">Employee</h2>
+            <div class="image-container">
+                <img src="https://img.freepik.com/premium-vector/work-from-home-illustration-with-copy-space-man-working-with-laptop-desktop-flat-design_115968-28.jpg"
+                     alt="Image">
+            </div>
+        </div>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - Employee - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
